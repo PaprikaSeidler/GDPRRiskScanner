@@ -7,3 +7,9 @@ Describe "Add-Numbers" {
         Add-Numbers -a 1 -b 1 | Should -Be 2
     }
 }
+
+Describe "Add-Numbers2" {
+    It "1 + 1 = 2" {
+        Add-Numbers -a 1 -b 1 | Should -Be 2
+    }
+}
