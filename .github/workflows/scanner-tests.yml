@@ -1,0 +1,29 @@
+name: PowerShell Scanner Tests
+
+on:
+  push:
+    paths:
+      - 'scanner/**'
+  pull_request:
+    paths:
+      - 'scanner/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Installer Pester
+        shell: pwsh
+        run: Install-Module -Name Pester -Force -Scope CurrentUser
+
+      - name: Kør tests
+        shell: pwsh
+        run: |
+          $config = New-PesterConfiguration
+          $config.Run.Path = './scanner/tests'
+          $config.TestResult.Enabled = $true
+          $config.TestResult.OutputPath = 'test-results.xml'
+          Invoke-Pester -Configuration $config
