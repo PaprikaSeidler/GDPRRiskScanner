@@ -9,4 +9,13 @@ Describe 'FindPhonenumber' {
 
         $result | Should -Not -BeNullOrEmpty
     }
+      It 'find et dansk nummer med +45 i' {
+        $testFolder = Resolve-Path "$PSScriptRoot\..\..\LocalTestFolder"
+        $result = Find-PhoneNumber -ScanPath $testFolder
+
+        $result.MatchCount | Should -Be 6
+    }
 }
+
+
+  
