@@ -20,12 +20,17 @@ function Find-PhoneNumber {
     foreach ($file in $files) {
         $matchCount = 0
         $lineNumber = 0
-
+        $matchedLines = [System.Collections.Generic.List[PSCustomObject]]::new()
         foreach ($line in Get-Content $file.FullName) {
             $lineNumber++
 
             # STEP 4: Anvend regex — gem IKKE selve nummeret
            $Matches = [regex]::Matches($line, $phoneRegex)
+
+           if ($Matches.Count -gt 0) {                    
+            $matchedLines.Add($lineNumber)             
+        }
+
            $matchCount += $Matches.Count
 
         }
@@ -36,10 +41,16 @@ function Find-PhoneNumber {
                 FileName   = $file.Name
                 FilePath   = $file.FullName
                 MatchCount = $matchCount
+                LineNumbers = $matchedLines
             })
         }
+        
     }
 
     # STEP 6: Returner resultater
     return $results
 }
+# Kald funktionen automatisk når jeg kører scriptet
+$result = Find-PhoneNumber
+$result | Format-List FileName, FilePath, MatchCount
+Write-Host "LineNumbers : $($result.LineNumbers -join ', ')"
