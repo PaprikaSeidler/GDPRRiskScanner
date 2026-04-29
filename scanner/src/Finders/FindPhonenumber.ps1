@@ -20,7 +20,7 @@ function Find-PhoneNumber {
     foreach ($file in $files) {
         $matchCount = 0
         $lineNumber = 0
-        $matchedLines = [System.Collections.Generic.List[PSCustomObject]]::new()
+        $matchedLines = [System.Collections.Generic.List[Int32]]::new()
         foreach ($line in Get-Content $file.FullName) {
             $lineNumber++
 
