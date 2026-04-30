@@ -32,5 +32,6 @@ Describe 'FindCPR' {
         $result.LineNumbers | Should -Contain 4
         $result.LineNumbers | Should -Not -Contain 5
         $result.LineNumbers | Should -Contain 6
+         $result.LineNumbers | Should -Not -Contain 7
     }
 }
