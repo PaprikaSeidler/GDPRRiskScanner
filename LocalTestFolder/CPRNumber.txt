@@ -1,8 +1,6 @@
-12345678          # 8 cifre, ingen mellemrum
-12 34 56 78       # med mellemrum
-+45 12345678      # med landekode
-+45 12 34 56 78   # landekode + mellemrum
-1234		  # Ikke et telefonnummer
-
-Ring til 12 34 56 78 hvis du har spørgsmål
-+45 87654321
+120187-1234
+010199-5678
+Ingen cpr her
+Dette er et cpr 120187-1234 midt i teksten
+1234
+010199-9999
