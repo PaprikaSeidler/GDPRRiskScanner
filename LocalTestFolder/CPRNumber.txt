@@ -3,4 +3,5 @@
 Ingen cpr her
 Dette er et cpr 120187-1234 midt i teksten
 1234
-010199 -9999
+010199-9999
+123344  - 23214

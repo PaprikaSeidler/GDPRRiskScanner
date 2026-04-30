@@ -53,4 +53,3 @@ function Find-PhoneNumber {
 # Kald funktionen automatisk når jeg kører scriptet
 $result = Find-PhoneNumber
 $result | Format-List FileName, FilePath, MatchCount, LineNumbers
-Write-Host "LineNumbers : $($result.LineNumbers -join ', ')"
