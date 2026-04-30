@@ -1,5 +1,5 @@
 120187-1234
-010199-5678
+010199 - 5678
 Ingen cpr her
 Dette er et cpr 120187-1234 midt i teksten
 1234
