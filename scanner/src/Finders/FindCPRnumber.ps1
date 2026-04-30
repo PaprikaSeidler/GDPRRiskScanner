@@ -2,14 +2,14 @@
 # Formål: Scanner filer for danske telefonnumre og returnerer metadata (fil + antal fund)
 # Selve telefonnumrene logges IKKE — kun metadata, jf. user story krav om simpel persondata-håndtering
 
-function Find-PhoneNumber {
+function Find-CPRNumber {
     param (
         [string]$ScanPath = "$PSScriptRoot\..\..\..\LocalTestFolder",
         [string[]]$FileFilter = @("*.txt")
     )
 
-    # STEP 1: Definer regex for danske telefonnumre
-    $phoneRegex = '(?:\+45\s*)?(?:\d{8}|\d{2}(?:\s*\d{2}){3})'
+    # STEP 1: Definer regex for CPR numre
+    $cprRegex = '\b\d{6}\s*-\s*\d{4}\b'
 
     # STEP 2: Hent alle relevante filer i ScanPath
     $files = Get-ChildItem -Path $ScanPath -Recurse -File -Include $FileFilter
@@ -25,7 +25,7 @@ function Find-PhoneNumber {
             $lineNumber++
 
             # STEP 4: Anvend regex — gem IKKE selve nummeret
-           $Matches = [regex]::Matches($line, $phoneRegex)
+           $Matches = [regex]::Matches($line, $cprRegex)
 
            if ($Matches.Count -gt 0) {                    
             $matchedLines.Add($lineNumber)             
@@ -51,6 +51,5 @@ function Find-PhoneNumber {
     return $results
 }
 # Kald funktionen automatisk når jeg kører scriptet
-$result = Find-PhoneNumber
+$result = Find-CPRNumber
 $result | Format-List FileName, FilePath, MatchCount, LineNumbers
-Write-Host "LineNumbers : $($result.LineNumbers -join ', ')"
