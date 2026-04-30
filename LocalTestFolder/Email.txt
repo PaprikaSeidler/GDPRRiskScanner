@@ -1,0 +1,10 @@
+# Emails --> i alt 4 gyldige!
+abc@abc.dk
+abc123.hej@gmail.com
+123@1e.dk
+Dette er en email: A123.12@email.com den er gyldig
+
+Dette er ikke en 213@hej.k den er ikke gyldig
+
+abc@abc.dk
+abc123.hej@gmail.com
