@@ -1,3 +1,9 @@
 .vs/
 bin/
 obj/
+# Hemmeligheder
+appsettings.Development.json
+appsettings.*.json
+
+# Undtagelse — basis appsettings må gerne være med (ingen hemmeligheder her)
+!appsettings.json
